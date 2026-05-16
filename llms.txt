@@ -1,0 +1,37 @@
+# Micro-SaaS Runway Price Floor Calculator
+
+URL: https://micro-saas-runway-price-floor-calculator.vercel.app/
+Source: https://github.com/Turner-Levey/micro-saas-runway-price-floor-calculator
+License: MIT
+Maintainer: Turner Levey
+
+## Summary
+
+Free browser-only calculator for estimating a micro-SaaS monthly price floor, break-even customer count, gross-margin revenue gap, and runway pressure from current ARPA, active customers, monthly churn, expected new customers, gross margin, fixed overhead, founder income target, growth budget, and cash reserve.
+
+## Use Cases
+
+- Bootstrapped founders estimating a minimum sustainable monthly ARPA.
+- Micro-SaaS operators comparing current price to overhead and income targets.
+- Tiny SaaS builders deciding whether to test packaging, retention, annual plans, or customer acquisition before changing price.
+
+## Privacy And Runtime
+
+- No signup.
+- No cookies.
+- No analytics or trackers.
+- No uploads.
+- No external scripts.
+- No runtime network calls.
+- No browser storage.
+- Markdown and CSV outputs are generated locally in the browser.
+
+## Boundaries
+
+This is a planning worksheet. It is not legal, financial, tax, accounting, pricing-strategy, or investment advice.
+
+## Public Files
+
+- Main tool: https://micro-saas-runway-price-floor-calculator.vercel.app/
+- Sitemap: https://micro-saas-runway-price-floor-calculator.vercel.app/sitemap.xml
+- Open Graph image: https://micro-saas-runway-price-floor-calculator.vercel.app/og.svg

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Price floor icon">
+  <rect width="64" height="64" rx="12" fill="#0f766e"/>
+  <path d="M14 44h36" stroke="#f4f6f1" stroke-width="5" stroke-linecap="round"/>
+  <path d="M18 38l10-12 9 8 11-16" fill="none" stroke="#f4f6f1" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="28" cy="26" r="4" fill="#a24715"/>
+</svg>

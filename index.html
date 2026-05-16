@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Free Micro-SaaS Runway Price Floor Calculator</title>
+    <meta
+      name="description"
+      content="Free no-tracking micro-SaaS calculator for estimating a monthly price floor, break-even customer count, and runway risk from churn, margin, overhead, and founder income targets."
+    >
+    <link rel="canonical" href="https://micro-saas-runway-price-floor-calculator.vercel.app/">
+    <meta property="og:title" content="Free Micro-SaaS Runway Price Floor Calculator">
+    <meta property="og:description" content="Estimate the monthly price floor and break-even customer count for a bootstrapped micro-SaaS without signup or tracking.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://micro-saas-runway-price-floor-calculator.vercel.app/">
+    <meta property="og:image" content="https://micro-saas-runway-price-floor-calculator.vercel.app/og.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Micro-SaaS Runway Price Floor Calculator">
+    <meta name="twitter:description" content="Estimate a micro-SaaS price floor, break-even customer count, and runway gap.">
+    <meta name="twitter:image" content="https://micro-saas-runway-price-floor-calculator.vercel.app/og.svg">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Free Micro-SaaS Runway Price Floor Calculator",
+        "alternateName": [
+          "Micro-SaaS price floor calculator",
+          "Bootstrapped SaaS runway calculator",
+          "SaaS minimum price calculator",
+          "Ramen profitability calculator"
+        ],
+        "applicationCategory": "BusinessApplication",
+        "applicationSubCategory": "SaaS unit economics calculator",
+        "operatingSystem": "Any",
+        "url": "https://micro-saas-runway-price-floor-calculator.vercel.app/",
+        "isAccessibleForFree": true,
+        "creator": {
+          "@type": "Person",
+          "name": "Turner Levey"
+        },
+        "description": "Browser-only calculator for estimating a micro-SaaS price floor, break-even customer count, margin gap, and runway risk.",
+        "featureList": [
+          "Estimate a monthly price floor from active customers, churn, gross margin, overhead, and founder income target",
+          "Compare current ARPA against a survival price floor",
+          "Copy or export a local Markdown and CSV runway note"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="identity">
+        <p class="eyebrow">Micro-SaaS runway calculator</p>
+        <h1>Free Micro-SaaS Runway Price Floor Calculator</h1>
+      </div>
+      <nav aria-label="Project links">
+        <a href="https://github.com/Turner-Levey/micro-saas-runway-price-floor-calculator">Source</a>
+        <a href="/llms.txt">llms.txt</a>
+        <a href="/sitemap.xml">Sitemap</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="summary" aria-label="Calculator results">
+        <div class="result primary-result">
+          <span>Price floor</span>
+          <strong id="price-floor">$0</strong>
+          <small id="floor-label">Waiting for inputs</small>
+        </div>
+        <div class="result">
+          <span>Break-even customers</span>
+          <strong id="break-even">0</strong>
+          <small>At current ARPA</small>
+        </div>
+        <div class="result">
+          <span>Monthly gap</span>
+          <strong id="monthly-gap">$0</strong>
+          <small id="gap-label">After gross margin</small>
+        </div>
+        <div class="result">
+          <span>Runway at gap</span>
+          <strong id="runway">Flat</strong>
+          <small id="runway-label">Cash reserve divided by gap</small>
+        </div>
+      </section>
+
+      <section class="workspace" aria-label="Runway worksheet">
+        <form class="panel input-panel" id="calculator-form">
+          <div class="panel-head">
+            <h2>Inputs</h2>
+            <button class="secondary" id="reset" type="button">Reset</button>
+          </div>
+
+          <div class="input-grid">
+            <label class="field">
+              <span>Active customers</span>
+              <input id="customers" type="number" min="1" step="1" value="42">
+            </label>
+            <label class="field">
+              <span>Current monthly ARPA</span>
+              <input id="price" type="number" min="0" step="1" value="39">
+            </label>
+            <label class="field">
+              <span>Monthly churn</span>
+              <div class="range-row">
+                <input id="churn" type="range" min="0" max="20" step="0.5" value="4">
+                <output id="churn-output" for="churn">4%</output>
+              </div>
+            </label>
+            <label class="field">
+              <span>New customers per month</span>
+              <input id="new-customers" type="number" min="0" step="1" value="6">
+            </label>
+            <label class="field">
+              <span>Gross margin</span>
+              <div class="range-row">
+                <input id="gross-margin" type="range" min="30" max="100" step="1" value="86">
+                <output id="gross-margin-output" for="gross-margin">86%</output>
+              </div>
+            </label>
+            <label class="field">
+              <span>Fixed monthly overhead</span>
+              <input id="overhead" type="number" min="0" step="50" value="950">
+            </label>
+            <label class="field">
+              <span>Founder income target</span>
+              <input id="founder-income" type="number" min="0" step="100" value="3500">
+            </label>
+            <label class="field">
+              <span>Growth budget target</span>
+              <input id="growth-budget" type="number" min="0" step="50" value="400">
+            </label>
+            <label class="field">
+              <span>Cash reserve</span>
+              <input id="cash" type="number" min="0" step="100" value="12000">
+            </label>
+            <label class="field">
+              <span>Target runway buffer</span>
+              <div class="range-row">
+                <input id="buffer" type="range" min="0" max="12" step="1" value="3">
+                <output id="buffer-output" for="buffer">3 months</output>
+              </div>
+            </label>
+          </div>
+        </form>
+
+        <section class="panel analysis-panel" aria-label="Runway analysis">
+          <div class="panel-head">
+            <h2>Decision Notes</h2>
+            <span id="status-pill">Needs inputs</span>
+          </div>
+          <div class="note-list" id="note-list"></div>
+
+          <label class="field notes-field">
+            <span>Context notes</span>
+            <textarea id="notes" rows="5" placeholder="Positioning, target segment, packaging assumption, or pricing test note"></textarea>
+          </label>
+
+          <div class="button-row">
+            <button id="copy-report" type="button">Copy Markdown</button>
+            <button class="secondary" id="download-report" type="button">Download Markdown</button>
+            <button class="secondary" id="download-csv" type="button">Download CSV</button>
+          </div>
+
+          <textarea id="report" class="report" spellcheck="false" aria-label="Runway price floor report"></textarea>
+        </section>
+      </section>
+
+      <section class="explainer" aria-label="Formula notes">
+        <div>
+          <h2>What This Estimates</h2>
+          <p>
+            The price floor is the monthly ARPA needed to cover fixed overhead, founder income, and growth budget after churn and gross margin. It is a planning worksheet, not pricing advice.
+          </p>
+        </div>
+        <div>
+          <h2>Why Churn Matters</h2>
+          <p>
+            The calculator discounts the active customer base by expected monthly churn, then adds expected new customers. Higher churn raises the price floor because fewer customers carry the same cost base.
+          </p>
+        </div>
+        <div>
+          <h2>What To Test</h2>
+          <p>
+            Compare the price floor to the current ARPA, then test packaging, annual plans, onboarding quality, and churn reduction before assuming a price increase alone can close the gap.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>No signup, no tracking, no cookies, no analytics, no uploads, no external scripts.</span>
+      <span>Runs fully in the browser and exports local Markdown or CSV.</span>
+      <span>Planning worksheet only; not legal, financial, tax, accounting, or investment advice.</span>
+    </footer>
+
+    <script src="/script.js" defer></script>
+  </body>
+</html>

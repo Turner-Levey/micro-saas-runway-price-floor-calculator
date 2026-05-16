@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://micro-saas-runway-price-floor-calculator.vercel.app/sitemap.xml

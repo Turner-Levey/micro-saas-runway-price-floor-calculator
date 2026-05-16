@@ -1,0 +1,331 @@
+:root {
+  color-scheme: light;
+  --ink: #18202b;
+  --muted: #647184;
+  --paper: #f4f6f1;
+  --panel: #ffffff;
+  --line: #d7ded8;
+  --accent: #0f766e;
+  --accent-2: #a24715;
+  --blue: #1d4f91;
+  --risk: #b42318;
+  --watch: #946200;
+  --good: #0b6b3a;
+  --soft: #e8f3ef;
+  --shadow: 0 18px 50px rgba(24, 32, 43, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+.topbar,
+main,
+footer {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+  padding: 28px 0 18px;
+}
+
+.identity {
+  max-width: 860px;
+}
+
+.topbar h1 {
+  margin: 4px 0 0;
+  font-size: clamp(2rem, 5vw, 4.4rem);
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+.eyebrow,
+.result span,
+.field span,
+.panel-head span,
+footer {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+nav {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  font-size: 0.9rem;
+  font-weight: 850;
+}
+
+nav a {
+  text-underline-offset: 4px;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: 1.25fr repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 18px 0;
+}
+
+.result,
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.result {
+  min-height: 158px;
+  padding: 22px;
+  display: grid;
+  align-content: space-between;
+  gap: 12px;
+}
+
+.result strong {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 0.95;
+  color: var(--blue);
+}
+
+.primary-result strong {
+  color: var(--accent);
+}
+
+.result small {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.86fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.panel {
+  padding: 20px;
+}
+
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.panel-head h2,
+.explainer h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.field {
+  display: grid;
+  gap: 7px;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #fbfcfb;
+  color: var(--ink);
+  padding: 11px 12px;
+  border-radius: 8px;
+}
+
+input[type="range"] {
+  padding: 0;
+  accent-color: var(--accent);
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 850;
+  padding: 11px 14px;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: var(--soft);
+  color: var(--accent);
+}
+
+.range-row {
+  display: grid;
+  grid-template-columns: 1fr 78px;
+  gap: 12px;
+  align-items: center;
+}
+
+output {
+  color: var(--accent-2);
+  font-weight: 900;
+  text-align: right;
+}
+
+.note-list {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.note {
+  border-left: 4px solid var(--accent);
+  background: #fbfcfb;
+  padding: 12px 14px;
+}
+
+.note strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.note p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+#status-pill {
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: var(--soft);
+  color: var(--accent);
+}
+
+#status-pill.good {
+  background: #e5f5ec;
+  color: var(--good);
+}
+
+#status-pill.watch {
+  background: #fff3d6;
+  color: var(--watch);
+}
+
+#status-pill.risk {
+  background: #ffe8e4;
+  color: var(--risk);
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.report {
+  min-height: 260px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.83rem;
+  line-height: 1.5;
+}
+
+.explainer {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 14px 0 26px;
+}
+
+.explainer > div {
+  border-top: 4px solid var(--accent-2);
+  padding: 16px 2px 0;
+}
+
+.explainer p {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+footer {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 24px 0 34px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+@media (max-width: 900px) {
+  .topbar,
+  footer {
+    display: grid;
+  }
+
+  nav {
+    justify-content: flex-start;
+  }
+
+  .summary,
+  .workspace,
+  .explainer {
+    grid-template-columns: 1fr;
+  }
+
+  .result {
+    min-height: 130px;
+  }
+}
+
+@media (max-width: 620px) {
+  .input-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .range-row {
+    grid-template-columns: 1fr 70px;
+  }
+
+  .topbar,
+  main,
+  footer {
+    width: min(100% - 22px, 1180px);
+  }
+}
