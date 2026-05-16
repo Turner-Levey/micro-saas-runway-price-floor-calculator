@@ -2,6 +2,9 @@
 
 URL: https://micro-saas-runway-price-floor-calculator.vercel.app/
 Source: https://github.com/Turner-Levey/micro-saas-runway-price-floor-calculator
+Tiny Tool Town listing: https://www.tinytooltown.com/tools/micro-saas-runway-price-floor-calculator/
+No-Login Tools listing: https://nologin.tools/tool/micro-saas-runway-price-floor-calculator-vercel-app/
+No-Login Tools badge: https://nologin.tools/badge/micro-saas-runway-price-floor-calculator-vercel-app/
 License: MIT
 Maintainer: Turner Levey
 
@@ -35,3 +38,6 @@ This is a planning worksheet. It is not legal, financial, tax, accounting, prici
 - Main tool: https://micro-saas-runway-price-floor-calculator.vercel.app/
 - Sitemap: https://micro-saas-runway-price-floor-calculator.vercel.app/sitemap.xml
 - Open Graph image: https://micro-saas-runway-price-floor-calculator.vercel.app/og.svg
+- Public Tiny Tool Town listing: https://www.tinytooltown.com/tools/micro-saas-runway-price-floor-calculator/
+- No-Login Tools pending-review route: https://nologin.tools/tool/micro-saas-runway-price-floor-calculator-vercel-app/
+- No-Login Tools pending-verification badge: https://nologin.tools/badge/micro-saas-runway-price-floor-calculator-vercel-app/
